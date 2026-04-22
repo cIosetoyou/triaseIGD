@@ -10,6 +10,8 @@ struct detail {
 
 };
 
+detail data[100];
+int jumlah=0;
 
 void writeData(string artName, string artistName, int price){
 	FILE *berkas;
@@ -38,6 +40,32 @@ void readData(){
 	}
 }
 
+void cariPasien() {
+    
+    readData();
+    char cari[50];
+    bool ketemu=false;
+
+    cout << "\n=====================================================\n";
+    cout << "Cari Pasien : ";
+    cin.getline(cari,50);
+
+    for(int i=0; i < jumlah; i++){
+		if(sama(data[i].nama, cari)) {
+			if(!ketemu) {
+				cout << "\nDitemukan!\n";
+		}
+		
+		cout << data[i].nama <<  "| " << data[i].kategori <<  "| " << data[i].dokter << endl;
+		ketemu=true;
+		
+		}
+	}
+	
+	if(!ketemu)
+	cout << "\nData Tidak Ketemu!\n";
+
+}
 
 int main(){
 	int n;
