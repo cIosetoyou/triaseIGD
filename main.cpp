@@ -3,6 +3,12 @@
 using namespace std;
 fileSuccess = true;
 
+struct detail {
+    string nama;
+    int kategori;
+    string dokter;
+
+};
 
 
 void writeData(string artName, string artistName, int price){
