@@ -1,5 +1,37 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
+fileSuccess = true;
+
+
+
+void writeData(string artName, string artistName, int price){
+	FILE *berkas;
+	berkas = fopen("data_pasien.txt","a");
+	if(berkas != NULL){
+		fprintf(berkas, "%s\t%s\t%d\n", artName.c_str(), artistName.c_str(), price);
+		fclose(berkas);
+		fileSuccess = true;
+	}else{
+		cout<<"error!\n";
+	}
+}
+void readData(){
+	FILE *berkas;
+	berkas = fopen("data_pasien.txt","r");
+	if(berkas == NULL){
+		fileSuccess = false;
+	}else{
+		fileSuccess = true;
+		int lastIndex=0;
+		char temp_artName[100], temp_artistName[100];
+		int temp_price;
+		while(fscanf(berkas," %[^\t]\t%[^\t]\t%d\n", temp_artName, temp_artistName, &temp_price) != EOF){
+
+		}
+	}
+}
+
 
 int main(){
 	int n;
