@@ -12,7 +12,6 @@ struct detail {
 
 
 
-};
 
 detail data[100];
 int jumlah=0;
