@@ -118,7 +118,8 @@ do{
 			}
 		}
 		case 4:{
-
+            cariPasien();
+            break;
 		}
 	}
 }
