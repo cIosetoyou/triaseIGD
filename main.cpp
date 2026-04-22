@@ -7,8 +7,15 @@ struct detail {
     string nama;
     int kategori;
     string dokter;
-}pasien[100];
 
+};
+
+
+
+};
+
+detail data[100];
+int jumlah=0;
 
 void writeData(string nama, int kategori){
 	FILE *berkas;
@@ -39,6 +46,52 @@ void readData(){
 	}
 }
 
+
+void tambahPasien(){
+    string nama;
+    int kategori;
+    cout << "========== REGISTRASI PASIEN ==========\n\n";
+    cout << "Nama Pasien : "; cin.getline(nama);
+    cout << "Kategori Triase: \n";
+    cout << "[1] Resusitasi\n"; 
+    cout << "[2] Emergency\n"; 
+    cout << "[3] Urgent\n";
+    cout << "[4] Non-Urgent\n";
+    cout << "[5] False Emergency\n";
+    cout << "Pilihan Kategori : "; cin >> kategori;
+
+    if(kategori == 1){
+        cout << "Pasien";
+    }
+}
+
+void cariPasien() {
+    
+    readData();
+    char cari[50];
+    bool ketemu=false;
+
+    cout << "\n=====================================================\n";
+    cout << "Cari Pasien : ";
+    cin.getline(cari,50);
+
+    for(int i=0; i < jumlah; i++){
+		if(sama(data[i].nama, cari)) {
+			if(!ketemu) {
+				cout << "\nDitemukan!\n";
+		}
+		
+		cout << data[i].nama <<  "| " << data[i].kategori <<  "| " << data[i].dokter << endl;
+		ketemu=true;
+		
+		}
+	}
+	
+	if(!ketemu)
+	cout << "\nData Tidak Ketemu!\n";
+
+
+}
 
 int main(){
 	int n;
