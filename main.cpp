@@ -10,14 +10,18 @@ struct detail {
 
 };
 
+
+
+};
+
 detail data[100];
 int jumlah=0;
 
-void writeData(string artName, string artistName, int price){
+void writeData(string nama, int kategori){
 	FILE *berkas;
 	berkas = fopen("data_pasien.txt","a");
 	if(berkas != NULL){
-		fprintf(berkas, "%s\t%s\t%d\n", artName.c_str(), artistName.c_str(), price);
+		fprintf(berkas, "%s,%s\n", nama.c_str(), kategori);
 		fclose(berkas);
 		fileSuccess = true;
 	}else{
@@ -32,10 +36,12 @@ void readData(){
 	}else{
 		fileSuccess = true;
 		int lastIndex=0;
-		char temp_artName[100], temp_artistName[100];
-		int temp_price;
-		while(fscanf(berkas," %[^\t]\t%[^\t]\t%d\n", temp_artName, temp_artistName, &temp_price) != EOF){
-
+		char temp_nama[100];
+		int temp_kategori;
+		while(fscanf(berkas," %[^,],%[^,]\n", temp_nama, &temp_kategori) != EOF){
+			pasien[lastIndex].nama=temp_nama;
+			pasien[lastIndex].kategori=temp_kategori;
+			lastIndex++;
 		}
 	}
 }
@@ -106,10 +112,18 @@ do{
 
 		}
 		case 3:{
-
+			readData();
+			for (int i = 0; i < lastIndex; ++i){
+				string kategoriWarna;
+				if (pasien[i].kategori==1 || pasien[i].kategori==2 ) kategoriWarna="MERAH";
+				else if (pasien[i].kategori==3) kategoriWarna="KUNING";
+				else if (pasien[i].kategori==4) kategoriWarna="HIJAU";
+				cout<<left<<setw(25)<<pasien[i].nama<<setw(30)<<kategoriWarna<<endl;
+			}
 		}
 		case 4:{
-
+            cariPasien();
+            break;
 		}
 	}
 }
