@@ -38,6 +38,23 @@ void readData(){
 	}
 }
 
+void tambahPasien(){
+    string nama;
+    int kategori;
+    cout << "========== REGISTRASI PASIEN ==========\n\n";
+    cout << "Nama Pasien : "; cin.getline(nama);
+    cout << "Kategori Triase: \n";
+    cout << "[1] Resusitasi\n"; 
+    cout << "[2] Emergency\n"; 
+    cout << "[3] Urgent\n";
+    cout << "[4] Non-Urgent\n";
+    cout << "[5] False Emergency\n";
+    cout << "Pilihan Kategori : "; cin >> kategori;
+
+    if(kategori == 1){
+        cout << "Pasien"
+    }
+}
 
 int main(){
 	int n;
