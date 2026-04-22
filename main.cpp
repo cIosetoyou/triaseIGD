@@ -9,11 +9,6 @@ struct detail {
     string dokter;
 
 };
-
-
-
-};
-
 detail data[100];
 int jumlah=0;
 
